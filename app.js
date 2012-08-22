@@ -12,6 +12,7 @@ var app = express.createServer();
 
 var port = process.env.VCAP_APP_PORT || 3000;
 app.configure(function(){
+  app.set("jsonp callback", true); // for JSONP callback. if you use 3.x express, delete this
   app.use(express.favicon());
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
