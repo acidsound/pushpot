@@ -18,4 +18,4 @@ no database. no auth.
 
 ### working demo
 1. client side example: [jsbin](http://jsbin.com/evijes/1/edit)
-1. server : [demo](http://jsonp-repo.aws.af.cm)
+1. demo JSONP-repo server: [demo](http://jsonp-repo.aws.af.cm)
