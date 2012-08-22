@@ -8,7 +8,7 @@ no database. no auth.
 1. git clone
 1. npm install
 1. mkdir repo
-1. node app.js
+1. node app.js -or- forever start -w app.js
 
 ### Usage
 1. create repo : http://yourDomain/?data=<json string>
