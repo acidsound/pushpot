@@ -8,12 +8,10 @@ var express = require('express')
   , http = require('http')
   , path = require('path');
 
-var app = express();
+var app = express.createServer();
 
+var port = process.env.VCAP_APP_PORT || 3000;
 app.configure(function(){
-  app.set('port', process.env.PORT || 3000);
-  app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');
   app.use(express.favicon());
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
@@ -30,6 +28,6 @@ app.get('/', routes.index);
 app.get('/get/:uuid', routes.read);
 app.get('/:uuid', routes.index);
 
-http.createServer(app).listen(app.get('port'), function(){
-  console.log("Express server listening on port " + app.get('port'));
+app.listen(port, function() {
+  console.log("Express server listening on port " + port);
 });
