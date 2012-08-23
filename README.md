@@ -20,8 +20,8 @@ supports CORS & JSONP
 1. update repo with JSONP : http://yourDomain/`uuid`/?callback=`your function name`&data=`json string`
 
 ### working demo
-1. client side example: [jsbin](http://jsbin.com/evijes/10/edit)
-1. demo JSONP-repo server: [demo](http://jsonp-repo.aws.af.cm)
+1. client side example: [jsbin](http://jsbin.com/evijes/11/edit)
+1. demo JSONP-repo server: [demo](http://pushpot.aws.af.cm)
 
 ### thanks to
 this idea inspired by [ppillip](http://ppillip.com).

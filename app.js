@@ -41,8 +41,11 @@ app.get('/get/:uuid', routes.read);
 app.get('/:uuid', routes.index);
 app.post('/:uuid', routes.index);
 
-if (!fs.existsSync(path.join(__dirname,'/repo')))
+try {
+  fs.readdirSync('./repo');
+} catch(e) {
   fs.mkdirSync(path.join(__dirname,'/repo'));
+}
 
 app.listen(port, function() {
   console.log("Express server listening on port " + port);
