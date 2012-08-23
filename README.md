@@ -1,17 +1,16 @@
-jsonp-repo
+pushpot
 =============
 
-simply implemented JSONP repository with node.js
+simply implemented single-unique repository with node.js
 
 no database. no auth.
 
-supports CORS.
+supports CORS & JSONP
 
 ### Install & Run
 1. git clone
 1. npm install
-1. mkdir repo
-1. node app.js -or- forever start -w app.js
+1. node app.js -or- [forever](https://github.com/nodejitsu/forever) start -w app.js [recommended]
 
 ### Usage
 1. create repo (returns uuid): http://yourDomain/?data=`json string`

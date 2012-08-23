@@ -6,6 +6,7 @@
 var express = require('express')
   , routes = require('./routes')
   , http = require('http')
+  , fs = require('fs')
   , path = require('path');
 
 var app = express.createServer();
@@ -31,7 +32,6 @@ var preprocessorCORS=function(req, res, next) {
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
     next();
 };
-
 app.all('/', preprocessorCORS);
 app.all('/:uuid', preprocessorCORS);
 
@@ -40,6 +40,10 @@ app.post('/', routes.index);
 app.get('/get/:uuid', routes.read);
 app.get('/:uuid', routes.index);
 app.post('/:uuid', routes.index);
+
+if (!fs.existsSync(path.join(__dirname,'/repo')))
+  fs.mkdirSync(path.join(__dirname,'/repo'));
+
 app.listen(port, function() {
   console.log("Express server listening on port " + port);
 });
