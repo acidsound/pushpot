@@ -11,10 +11,11 @@ no database. no auth.
 1. node app.js -or- forever start -w app.js
 
 ### Usage
-1. create repo (returns uuid): http://yourDomain/?data=*json string*
-1. read repo. : http://yourDomain/get/*uuid*
-1. read repo. with JSONP : http://yourDomain/get/*uuid*?callback=*your function name*
-1. update repo : http://yourDomain/*uuid*/?data=*json string*
+1. create repo (returns uuid): http://yourDomain/?data=`json string`
+1. read repo : http://yourDomain/get/`uuid`
+1. read repo with JSONP : http://yourDomain/get/`uuid`?callback=`your function name`
+1. update repo : http://yourDomain/`uuid`/?data=`json string`
+1. update repo with JSONP : http://yourDomain/`uuid`/?callback=`your function name`&data=`json string`
 
 ### working demo
 1. client side example: [jsbin](http://jsbin.com/evijes/10/edit)
