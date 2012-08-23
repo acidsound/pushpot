@@ -2,7 +2,10 @@ jsonp-repo
 =============
 
 simply implemented JSONP repository with node.js
+
 no database. no auth.
+
+supports CORS.
 
 ### Install & Run
 1. git clone
