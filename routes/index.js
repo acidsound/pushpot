@@ -1,13 +1,12 @@
 var fs = require('fs');
 var uuid = require('node-uuid');
 exports.index = function(req, res){
-  res.header('Access-Control-Allow-Origin', '*');
+  var data = !!req.files ? fs.readFileSync(req.files.fileupload.path) : req.method==='POST' ? JSON.stringify(req.body) : req.query['data'];
   var id = req.params['uuid'] || uuid.v1().split('-').join('');
-  fs.writeFileSync(__dirname + '/../repo/'+id+'.json', req.query['data']);
+  fs.writeFileSync(__dirname + '/../repo/'+id+'.json', data);
   res.json(req.params['uuid'] ? {"result":"ok"} : {"id":id});
 };
 exports.read = function(req, res){
-  res.header('Access-Control-Allow-Origin', '*'); // support CORS
   var text = fs.readFileSync(__dirname + '/../repo/'+req.params.uuid+'.json').toString();
   var result='';
   try {

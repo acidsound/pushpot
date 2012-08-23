@@ -25,10 +25,21 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
+// for CORS
+var preprocessorCORS=function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next();
+};
+
+app.all('/', preprocessorCORS);
+app.all('/:uuid', preprocessorCORS);
+
 app.get('/', routes.index);
+app.post('/', routes.index);
 app.get('/get/:uuid', routes.read);
 app.get('/:uuid', routes.index);
-
+app.post('/:uuid', routes.index);
 app.listen(port, function() {
   console.log("Express server listening on port " + port);
 });
