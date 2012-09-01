@@ -34,6 +34,7 @@ var preprocessorCORS=function(req, res, next) {
 };
 app.all('/', preprocessorCORS);
 app.all('/:uuid', preprocessorCORS);
+app.all('/get/:uuid', preprocessorCORS);
 
 app.get('/', routes.index);
 app.post('/', routes.index);
