@@ -7,13 +7,12 @@ exports.index = function(req, res){
   res.json(req.params['uuid'] ? {"result":"ok"} : {"id":id});
 };
 exports.read = function(req, res){
-  var text = fs.readFileSync(__dirname + '/../repo/'+req.params.uuid+'.json').toString();
-  var result='';
-  try {
-    result = JSON.parse(text);
-  } catch(e) {
-    res.send(text); 
-  } finally {
-    if (typeof result==='object') res.json(result);
-  }
+  var renderResult = function (err, data) {
+    try {
+      res.json(JSON.parse(data.toString()));
+    } catch (e) {
+      res.send(text);
+    }
+  };
+  fs.readFile(__dirname + '/../repo/'+req.params.uuid+'.json', renderResult);
 };
