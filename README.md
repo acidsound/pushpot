@@ -18,10 +18,13 @@ supports CORS & JSONP
 1. read repo with JSONP : http://yourDomain/get/`uuid`?callback=`your function name`
 1. update repo : http://yourDomain/`uuid`/?data=`json string`
 1. update repo with JSONP : http://yourDomain/`uuid`/?callback=`your function name`&data=`json string`
+1. upload file : form with enctype="multipart/form-data"
+1. upload file with command linke : curl -F "fileupload=@YOURFILE.EXT" http://yourDomain
 
 ### working demo
 1. client side example: [jsbin](http://jsbin.com/evijes/11/edit)
 1. demo pushpot server: [demo](http://pushpot.aws.af.cm)
+1. image upload: [jsbin](http://jsbin.com/usonac/1/edit)
 
 ### thanks to
 this idea inspired by [ppillip](http://ppillip.com).
